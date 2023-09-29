@@ -15,6 +15,6 @@ public interface Operacoes<Monitorado, Sensor> {
     public Map<Monitorado, List<Sensor>> ordenar(Map<Monitorado, List<Sensor>> leituras);
 
     // d.4
-    public void procurarPadrao(Map<Monitorado, List<Sensor>> leituras, List<Sensor> padrao);
+    public void radar(Map<Monitorado, List<Sensor>> leituras, List<Sensor> padrao);
 
 }

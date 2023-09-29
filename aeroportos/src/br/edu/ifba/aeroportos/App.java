@@ -36,7 +36,7 @@ public class App {
 
             // geração do nome 'fake' do aeroporto ( siglas )
             Faker faker = new Faker(Locale.forLanguageTag("pt-BR"));
-            leiturasPorAeroporto.put(new Aeroporto(id, "Aerporto - " + faker.aviation().airport()),
+            leiturasPorAeroporto.put(new Aeroporto(id, "Aeroporto - " + faker.aviation().airport()),
                     sensor.gerarLeituras(TOTAL_DE_LEITURAS));
         }
 
@@ -51,15 +51,15 @@ public class App {
         operacoes.imprimir(leiturasOrdenadas);
 
         // Execução d)4 - radar de congestionamento
-        List<Trafego> padrao = new ArrayList<>();
+        List<Trafego> radar = new ArrayList<>();
 
         // padrão de consgestionamento - curva crescente
-        padrao.add(new Trafego(1470));
-        padrao.add(new Trafego(1480));
-        padrao.add(new Trafego(1490));
+        radar.add(new Trafego(1480));
+        radar.add(new Trafego(1480));
+        radar.add(new Trafego(1490));
 
         System.out.println("--------- Radar Aereo ---------");
-        operacoes.procurarPadrao(leiturasPorAeroporto, padrao);
+        operacoes.radar(leiturasPorAeroporto, radar);
 
     }
 }

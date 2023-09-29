@@ -62,27 +62,25 @@ public class OperacoesImpl implements Operacoes<Aeroporto, Trafego> {
     }
 
     /**
-     * Esta função encontra um padrao de congestionamento nas leituras realizadas
+     * Esta função encontra um radar de congestionamento nas leituras realizadas
      * dos aeroportos.a complexidade é O(N^3), portanto, cúbica.
      * Justificativa -> Porque existem 3 loops(for) aninhados
      * 
-     * este algoritmo pode tender a ser uma execucao de brute force caso
-     * sejam muitos pacientes sendo monitorados e o total de temperaturas
-     * coletadas for uma entrada de dados muito grande
+     * 
      **/
     @Override
-    public void procurarPadrao(Map<Aeroporto, List<Trafego>> leituras, List<Trafego> padrao) {
+    public void radar(Map<Aeroporto, List<Trafego>> leituras, List<Trafego> radar) {
         int totalDeIguais = 0;
         // for 1
         for (Aeroporto aeroporto : leituras.keySet()) {
-            System.out.println("Procurando o padrão nas leituras do aeroporto: " + aeroporto.getNome());
+            System.out.println("Radar...: " + aeroporto.getNome());
             List<Trafego> trafego = leituras.get(aeroporto);
             // for 2
-            for (int i = 0; i < trafego.size() - padrao.size(); i++) {
+            for (int i = 0; i < trafego.size() - radar.size(); i++) {
                 // for 3
-                for (int j = 0; j < padrao.size(); j++) {
+                for (int j = 0; j < radar.size(); j++) {
                     // se maior ou igual satisfaz a condição para o padrão( congestionamento )
-                    if (trafego.get(i + j).getValor() >= padrao.get(j).getValor()) {
+                    if (trafego.get(i + j).getValor() >= radar.get(j).getValor()) {
                         totalDeIguais++;
                     }
                 }
